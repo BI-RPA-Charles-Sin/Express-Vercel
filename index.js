@@ -6,7 +6,22 @@ const RECIPE = require("./api/recipe");
 
 require("dotenv").config();
 
-app.use(cors());
+// https://dev-promotion-recurl-adv-eyldrcphzq-an.a.run.app
+const allowlist = [
+  "https://dev-promotion-recurl-adv-eyldrcphzq-an.a.run.app/",
+  "https://dev-promotion-recurl-adv-eyldrcphzq-an.a.run.app",
+  process.env.CS_EXPENSE_TRACKER_URL,
+];
+const corsOptionsDelegate = function (req, callback) {
+  let corsOptions;
+  if (allowlist.indexOf(req.header("Origin")) !== -1) {
+    corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+  } else {
+    corsOptions = { origin: false }; // disable CORS for this request
+  }
+  callback(null, corsOptions); // callback expects two parameters: error and options
+};
+app.use(cors(corsOptionsDelegate));
 
 app.use(express.json({ extended: false }));
 
