@@ -11,6 +11,10 @@ const allowlist = [
   "https://dev-promotion-recurl-adv-eyldrcphzq-an.a.run.app/",
   "https://dev-promotion-recurl-adv-eyldrcphzq-an.a.run.app",
   process.env.CS_EXPENSE_TRACKER_URL,
+  "http://localhost:5173/",
+  "http://localhost:5173",
+  "http://127.0.0.1:5173",
+  "http://127.0.0.1:5173/",
 ];
 const corsOptionsDelegate = function (req, callback) {
   let corsOptions;
