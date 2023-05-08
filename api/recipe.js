@@ -37,4 +37,8 @@ router.get("/traceredirect", (req, res, next) => {
     });
 });
 
+router.post("/api/query_redirect_url", (req, res, next) => {
+  res.status(200).json({ status: "0000", result: "https://www.baidu.com/" });
+});
+
 module.exports = router;
