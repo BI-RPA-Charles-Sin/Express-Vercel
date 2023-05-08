@@ -41,7 +41,7 @@ router.post("/api/query_redirect_url", (req, res, next) => {
   const { decode_key } = req.body;
   const vaild = { 5271675: "https://www.baidu.com/", 1189908: "http://sogou.com/", 6546491: "https://tieba.baidu.com/", 1487350: "https://www.sohu.com/", 1883964: "https://www.kafan.cn/" };
 
-  if (vaild.includes(decode_key)) {
+  if (vaild[decode_key]) {
     res.status(200).json({ status: "0000", result: "https://www.baidu.com/" });
   } else {
     res.status(404).json({ status: "404", result: "Not Found" });
