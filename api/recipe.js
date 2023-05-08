@@ -45,7 +45,7 @@ router.post("/api/query_redirect_url", (req, res, next) => {
   if (vaild[decode_key]) {
     res.status(200).json({ status: "0000", result: vaild[decode_key] });
   } else {
-    res.status(204).json({ status: "404", result: "Not Found" });
+    res.status(204).json({ status: "404", message: "Not Found" });
   }
 });
 
